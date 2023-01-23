@@ -2,9 +2,368 @@
     "schema": {
         "options": {},
         "crud_objects": {
+            "alternatenames": {
+                "operations": {
+                    "alternatenamesList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/alternatenames"
+                        },
+                        "processing_options": {
+                            "output_field": "AlternateName"
+                        },
+                        "query_parameters": {}
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "URI": "string",
+                    "FirstName": "string*",
+                    "LastName": "string*",
+                    "ObjectId": "string*",
+                    "GloablUserObjectId": "string*",
+                    "GlobalUserURI": "string"
+                    
+                }
+            
+            },
+            "coses": {
+                "operations": {
+                    "cosesList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/coses"
+                        },
+                        "processing_options": {
+                            "output_field": "Cos"
+                        },
+                        "query_parameters": {}
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "URI": "string",
+                    "ObjectId": "string*",
+                    "DisplayName": "string*"
+                    
+                }
+            
+            },
+            "coses_detail": {
+                "operations": {
+                    "coses_detailList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "coses",
+                            "iterator": "ObjectId",
+                            "path": "/coses/{iterator}",
+                            "base": {
+                                "ObjectId": "{iterator}"
+                            }
+                        },
+                        "processing_options": {
+                            "output_field": ""
+                        },
+                        "query_parameters": {},
+                        "maxSessionCount": 2
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "URI": "string",
+                    "ObjectId": "string*",
+                    "AccessFaxMail": "boolean*",
+                    "AccessTts": "boolean*",
+                    "CallHoldAvailable": "boolean*",
+                    "CallScreenAvailable": "boolean*",
+                    "CanRecordName": "boolean*",
+                    "FaxRestrictionObjectId": "string*",
+                    "ListInDirectoryStatus": "boolean*",
+                    "LocationObjectId": "string*",
+                    "LocationURI": "string",
+                    "MaxGreetingLength": "string*",
+                    "MaxMsgLength": "string*",
+                    "MaxNameLength": "string*",
+                    "MaxPrivateDlists": "string*",
+                    "MovetoDeleteFolder": "boolean*",
+                    "OutcallRestrictionObjectId": "string*",
+                    "PersonalAdministrator": "boolean*",
+                    "DisplayName": "string*",
+                    "XferRestrictionObjectId": "string*",
+                    "Undeletable": "boolean*",
+                    "WarnIntervalMsgEnd": "string*",
+                    "CanSendToPublicDl": "boolean*",
+                    "EnableEnhancedSecurity": "boolean*",
+                    "AccessVmi": "boolean*",
+                    "AccessLiveReply": "boolean*",
+                    "UaAlternateExtensionAccess": "string*",
+                    "AccessCallRoutingRules": "boolean*",
+                    "WarnMinMsgLength": "string*",
+                    "SendBroadcastMessage": "boolean*",
+                    "UpdateBroadcastMessage": "boolean*",
+                    "AccessVui": "boolean*",
+                    "ImapCanFetchMessageBody": "boolean*",
+                    "ImapCanFetchPrivateMessageBody": "boolean*",
+                    "MaxMembersPVL": "string*",
+                    "AccessIMAP": "boolean*",
+                    "ReadOnly": "boolean*",
+                    "AccessAdvancedUserFeatures": "boolean*",
+                    "AccessAdvancedUser": "boolean*",
+                    "AccessUnifiedClient": "boolean*",
+                    "RequireSecureMessages": "string*",
+                    "AccessOutsideLiveReply": "boolean*",
+                    "AccessSTT": "boolean*",
+                    "EnableSTTSecureMessage": "string*",
+                    "MessagePlaybackRestriction": "string*",
+                    "SttType": "string*",
+                    "PlaybackMessageAndGreetings": "boolean*",
+                    "OutsideCallers": "false"
+                }
+            
+            },
+            "directoryhandlers": {
+                "operations": {
+                    "distributionlistsList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/handlers/directoryhandlers"
+                        },
+                        "processing_options": {
+                            "output_field": "DirectoryHandler"
+                        },
+                        "query_parameters": {}
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "URI": "string",
+                    "CreationTime": "date*",
+                    "Language": "string*",
+                    "DisplayName": "string*",
+                    "Undeletable": "boolean*",
+                    "VoiceName": "string*",
+                    "VoiceFileURI": "string",
+                    "VoiceNameURI": "string",
+                    "LocationObjectId": "string*",
+                    "LocationURI": "string",
+                    "EndDialDelay": "string*",
+                    "MaxMatches": "string*",
+                    "MenuStyle": "boolean*",
+                    "SayExtension": "boolean*",
+                    "SearchByFirstName": "boolean*",
+                    "StartDialDelay": "string*",
+                    "Tries": "string*",
+                    "UseStarToExit": "boolean",
+                    "SearchScope": "string*",
+                    "SearchScopeObjectId": "string*",
+                    "PlayAllNames": "boolean*",
+                    "ExitAction": "string*",
+                    "ExitTargetConversation": "string*",
+                    "ExitTargetHandlerObjectId": "string*",
+                    "NoInputAction": "string*",
+                    "NoInputTargetConversation": "string*",
+                    "NoInputTargetHandlerObjectId": "string*",
+                    "NoSelectionAction": "string*",
+                    "NoSelectionTargetConversation": "string*",
+                    "NoSelectionTargetHandlerObjectId": "string*",
+                    "ZeroAction": "string*",
+                    "ZeroTargetConversation": "string*",
+                    "ZeroTargetHandlerObjectId": "string*",
+                    "AutoRoute": "boolean*",
+                    "ObjectId": "string*",
+                    "DtmfAccessId": "string*",
+                    "ScopeObjectLocationObjectId": "string*",
+                    "ScopeObjectLocationURI": "string",
+                    "VoiceEnabled": "boolean*",
+                    "UseCallLanguage": "boolean*",
+                    "UseDefaultLanguage": "boolean*",
+                    "PartitionObjectId": "string*",
+                    "PartitionURI": "string*",
+                    "SpeechConfidenceThreshold": "boolean*",
+                    "SayCity": "boolean*",
+                    "SayDepartment": "boolean*",
+                    "UseCustomGreeting": "boolean*",
+                    "ExitConversationURI": "string",
+                    "NoInputConversationURI": "string",
+                    "NoSelectionConversationURI": "string",
+                    "ZeroExitConversationURI": "string",
+                    "DirectoryHandlerStreamFileURI": "string"
+                }
+            
+            },
+            "distributionlists": {
+                "operations": {
+                    "distributionlistsList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/distributionlists"
+                        },
+                        "processing_options": {
+                            "output_field": "DistributionList"
+                        },
+                        "query_parameters": {}
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "URI": "string",
+                    "ObjectId": "string*",
+                    "Alias": "string*",
+                    "DisplayName": "string*",
+                    "LocationObjectId": "string*",
+                    "LocationURI": "string",
+                    "PartitionObjectId": "string*",
+                    "PartitionURI": "string",
+                    "DistributionListMembersURI": "string",
+                    "AlternateNamesURI": "string"
+                    
+                }
+            
+            },
+            "partitions": {
+                "operations": {
+                    "partitionsList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/partitions"
+                        },
+                        "processing_options": {
+                            "output_field": "Partition"
+                        },
+                        "query_parameters": {}
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "URI": "string",
+                    "ObjectId": "string*",
+                    "Name": "string*",
+                    "Description": "string*",
+                    "LocationObjectId": "string*",
+                    "LocationURI": "string"
+                }
+            
+            },
+            "roles": {
+                "operations": {
+                    "rolesList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/roles"
+                        },
+                        "processing_options": {
+                            "output_field": "Role"
+                        },
+                        "query_parameters": {}
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "URI": "string",
+                    "ObjectId": "string*",
+                    "RoleName": "string*",
+                    "RoleDescription": "string*",
+                    "IsEnabled": "boolean*",
+                    "ReadOnly": "boolean*"
+                    
+                }
+            
+            },
+            "smtpproxyaddresses": {
+                "operations": {
+                    "smtpproxyaddressesList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/smtpproxyaddresses"
+                        },
+                        "processing_options": {
+                            "output_field": "SmtpProxyAddress"
+                        },
+                        "query_parameters": {}
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "URI": "string",
+                    "ObjectId": "string*",
+                    "SmtpAddress": "string*",
+                    "ObjectGlobalUserObjectId": "string*",
+                    "ObjectGlobalUserURI": "string"
+                }
+            
+            },
+            "subscriberdependencies": {
+                "operations": {
+                    "subscriberdependenciesList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/subscriberdependencies"
+                        },
+                        "processing_options": {
+                            "output_field": "SubscriberDependency"
+                        },
+                        "query_parameters": {}
+                    }
+                },
+                "parameters": {},
+                "key": "DependentEntityObjectId",
+                "resources": {
+                    "DependencyType": "string*",
+                    "DependentEntityObjectId": "string*",
+                    "DependentEntityObjectType": "string*",
+                    "DependentEntityOwner": "string*",
+                    "DependencyDestinationType": "string",
+                    "SubscriberObjectId": "string",
+                    "UserURI": "string",
+                    "DependentEntityOwnerType": "string"
+                }
+            
+            },
+            "timezones": {
+                "operations": {
+                    "timezonesList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/timezones"
+                        },
+                        "processing_options": {
+                            "output_field": "TimeZone"
+                        },
+                        "query_parameters": {}
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "TimeZoneId": "string*",
+                    "DisplayName": "string*",
+                    "Bias": "string*",
+                    "DaylightBias": "string*",
+                    "DaylightStartMonth": "string*",
+                    "DaylightStartDayOfWeek": "string*",
+                    "DaylightStartWeek": "string*",
+                    "DaylightStartHour": "string*",
+                    "DaylightEndMonth": "string*",
+                    "DaylightEndDayOfWeek": "string*",
+                    "DaylightEndWeek": "string*",
+                    "DaylightEndHour": "string*",
+                    "LanguageCode": "string*",
+                    "LocalizationKey": "string*"
+                }
+            
+            },
             "usertemplates": {
                 "operations": {
-                    "usertemplates_get": {
+                    "usertemplatesList": {
                         "method": "get",
                         "call": {
                             "path": "/usertemplates"
@@ -166,10 +525,11 @@
             },
             "users": {
                 "operations": {
-                    "usertemplates_get": {
+                    "userList": {
                         "method": "get",
                         "call": {
-                            "path": "/users"
+                            "path": "/users",
+                            "post_processing": "child_tables"
                         },
                         "processing_options": {
                             "output_field": "User"
@@ -219,6 +579,441 @@
                     "UserRoleURI": "string",
                     "SmtpProxyAddressesURI": "string",
                     "AlternateNamesURI": "string"
+                }
+            
+            },
+            "users_alternateextensions": {
+                "operations": {
+                    "usersalternateextensionsList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "users",
+                            "iterator": "ObjectId",
+                            "path": "/users/{iterator}/alternateextensions",
+                            "base": {
+                                "ObjectId": "{iterator}"
+                            }
+                        },
+                        "processing_options": {
+                            "output_field": "AlternateExtension"
+                        },
+                        "query_parameters": {},
+                        "maxSessionCount": 2
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "URI": "string",
+                    "IdIndex": "string*",
+                    "DtmfAccessId": "string*",
+                    "LocationObjectId": "string*",
+                    "LocationURI": "string",
+                    "ObjectId": "string*",
+                    "PartitionObjectId": "string*",
+                    "PartitionURI": "string*",
+                    "AlternateExtensionAdvancedURI": "string*"
+                }
+            
+            },
+            "users_callhandlers": {
+                "operations": {
+                    "userscallhandlersList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "users",
+                            "iterator": "CallHandlerObjectId",
+                            "path": "/handlers/callhandlers/{iterator}",
+                            "base": {
+                                "CallHandlerObjectId": "{iterator}"
+                            }
+                        },
+                        "processing_options": {
+                            "output_field": ""
+                        },
+                        "query_parameters": {},
+                        "maxSessionCount": 2
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "URI": "string",
+                    "CreationTime": "date*",
+                    "Language": "string*",
+                    "Undeletable": "boolean*",
+                    "LocationObjectId": "string*",
+                    "LocationURI": "string",
+                    "EditMsg": "boolean*",
+                    "IsPrimary": "boolean*",
+                    "OneKeyDelay": "string*",
+                    "ScheduleSetObjectId": "string*",
+                    "ScheduleSetURI": "string",
+                    "SendUrgentMsg": "string*",
+                    "MaxMsgLen": "string*",
+                    "IsTemplate": "boolean*",
+                    "ObjectId": "string*",
+                    "RecipientSubscriberObjectId": "string*",
+                    "RecipientUserURI": "string",
+                    "DisplayName": "string*",
+                    "AfterMessageAction": "string*",
+                    "AfterMessageTargetConversation": "string*",
+                    "AfterMessageTargetHandlerObjectId": "string*",
+                    "TimeZone": "string*",
+                    "UseDefaultLanguage": "boolean*",
+                    "UseDefaultTimeZone": "boolean*",
+                    "MediaSwitchObjectId": "string*",
+                    "PhoneSystemURI": "string",
+                    "UseCallLanguage": "boolean*",
+                    "SendSecureMsg": "boolean*",
+                    "EnablePrependDigits": "boolean*",
+                    "DispatchDelivery": "boolean*",
+                    "CallSearchSpaceObjectId": "string*",
+                    "CallSearchSpaceURI": "string",
+                    "InheritSearchSpaceFromCall": "boolean*",
+                    "PartitionObjectId": "string*",
+                    "PartitionURI": "string",
+                    "PlayPostGreetingRecording": "string*",
+                    "SendPrivateMsg": "string*",
+                    "PlayAfterMessage": "string*",
+                    "GreetingsURI": "string",
+                    "TransferOptionsURI": "string",
+                    "MenuEntriesURI": "string",
+                    "CallHandlerOwnerURI": "string"
+                }
+            
+            },
+            "users_credential_pin": {
+                "operations": {
+                    "userscredentialpinList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "users",
+                            "iterator": "ObjectId",
+                            "path": "/users/{iterator}/credential/pin",
+                            "base": {
+                                "ObjectId": "{iterator}"
+                            }
+                        },
+                        "processing_options": {
+                            "output_field": ""
+                        },
+                        "query_parameters": {},
+                        "maxSessionCount": 2
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "URI": "string",
+                    "UserObjectId": "string*",
+                    "ObjectId": "string*",
+                    "CredentialType": "string*",
+                    "Credentials": "string*",
+                    "IsPrimary": "boolean*",
+                    "CantChange": "boolean*",
+                    "DoesntExpire": "boolean*",
+                    "TimeChanged": "date*",
+                    "HackCount": "string*",
+                    "Locked": "boolean*",
+                    "TimeLastHack": "date*",
+                    "TimeLockout": "date*",
+                    "Alias": "string*",
+                    "CredMustChange": "boolean*",
+                    "CredentialPolicyObjectId": "string*",
+                    "Hacked": "boolean*"
+                    
+                }
+            
+            },
+            "users_credential_password": {
+                "operations": {
+                    "userscredentialpasswordList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "users",
+                            "iterator": "ObjectId",
+                            "path": "/users/{iterator}/credential/password",
+                            "base": {
+                                "ObjectId": "{iterator}"
+                            }
+                        },
+                        "processing_options": {
+                            "output_field": ""
+                        },
+                        "query_parameters": {},
+                        "maxSessionCount": 2
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "URI": "string",
+                    "UserObjectId": "string*",
+                    "ObjectId": "string*",
+                    "CredentialType": "string*",
+                    "Credentials": "string*",
+                    "IsPrimary": "boolean*",
+                    "CantChange": "boolean*",
+                    "DoesntExpire": "boolean*",
+                    "TimeChanged": "date*",
+                    "HackCount": "string*",
+                    "Locked": "boolean*",
+                    "TimeLastHack": "date*",
+                    "TimeLockout": "date*",
+                    "Alias": "string*",
+                    "CredMustChange": "boolean*",
+                    "CredentialPolicyObjectId": "string*",
+                    "Hacked": "boolean*",
+                    "EncryptionType": "string*"
+                    
+                }
+            
+            },
+            "users_mailboxattributes": {
+                "operations": {
+                    "usersmailboxattributesList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "users",
+                            "iterator": "ObjectId",
+                            "path": "/users/{iterator}/mailboxattributes",
+                            "base": {
+                                "ObjectId": "{iterator}"
+                            }
+                        },
+                        "processing_options": {
+                            "output_field": ""
+                        },
+                        "query_parameters": {},
+                        "maxSessionCount": 2
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "ByteSize": "string*",
+                    "MessageAgingPolicyObjectId": "string*",
+                    "ObjectId": "string*",
+                    "Mounted": "string*",
+                    "NotificationType": "string*",
+                    "SendReadReceipts": "boolean*",
+                    "NumMessages": "string*",
+                    "Send": "string*",
+                    "Receive": "string*",
+                    "Warn": "string*"
+                }
+            },
+            "users_messagehandlers": {
+                "operations": {
+                    "usersmessagehandlersList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "users",
+                            "iterator": "ObjectId",
+                            "path": "/users/{iterator}/messagehandlers",
+                            "base": {
+                                "ObjectId": "{iterator}"
+                            }
+                        },
+                        "processing_options": {
+                            "output_field": ""
+                        },
+                        "query_parameters": {},
+                        "maxSessionCount": 2
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "ObjectId": "string*",
+                    "SubscriberObjectId": "string*",
+                    "UserURI": "string",
+                    "RelayAddress": "string*",
+                    "VoicemailAction": "string*",
+                    "EmailAction": "string*",
+                    "FaxAction": "string*",
+                    "DeliveryReceiptAction": "string*"
+                }
+            },
+            "users_mwi": {
+                "operations": {
+                    "usersmwiList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "users",
+                            "iterator": "ObjectId",
+                            "path": "/users/{iterator}/mwi",
+                            "base": {
+                                "ObjectId": "{iterator}"
+                            }
+                        },
+                        "processing_options": {
+                            "output_field": "Mwi"
+                        },
+                        "query_parameters": {},
+                        "maxSessionCount": 2
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "URI": "string",
+                    "SubscriberObjectId": "string*",
+                    "UserURI": "string",
+                    "ObjectId": "string*",
+                    "DisplayName": "string*",
+                    "MwiExtension": "string*",
+                    "MwiOn": "boolean*",
+                    "MediaSwitchObjectId": "string*",
+                    "PhoneSystemURI": "string",
+                    "IncludeTextMessages": "boolean*",
+                    "IncludeVoiceMessages": "boolean*",
+                    "IncludeFaxMessages": "boolean*",
+                    "Active": "boolean*",
+                    "UsePrimaryExtension": "boolean*",
+                    "MediaSwitchDisplayName": "string*"
+                    
+                }
+            
+            },
+            "users_notificationdevices": {
+                "operations": {
+                    "usersnotificationdevicesList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "users",
+                            "iterator": "ObjectId",
+                            "path": "/users/{iterator}/notificationdevices",
+                            "base": {
+                                "ObjectId": "{iterator}"
+                            }
+                        },
+                        "processing_options": {
+                            "output_field": "NotificationDevice"
+                        },
+                        "query_parameters": {},
+                        "maxSessionCount": 2
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "URI": "string",
+                    "SubscriberObjectId": "string*",
+                    "UserURI": "string",
+                    "ObjectId": "string*",
+                    "DisplayName": "string*",
+                    "Active": "boolean*",
+                    "BusyRetryInterval": "string*",
+                    "Type": "string*",
+                    "DialDelay": "string*",
+                    "MaxBody": "string*",
+                    "MaxSubject": "string*",
+                    "RetriesOnBusy": "string*",
+                    "RetriesOnRna": "string*",
+                    "RingsToWait": "string*",
+                    "RnaRetryInterval": "string*",
+                    "SendCount": "boolean*",
+                    "WaitConnect": "boolean*",
+                    "MediaSwitchObjectId": "string*",
+                    "PhoneSystemURI": "string",
+                    "TransmitForcedAuthorizationCode": "boolean*",
+                    "DeviceName": "string*",
+                    "PromptForId": "boolean*",
+                    "SendCallerId": "boolean*",
+                    "SendPcaLink": "boolean*",
+                    "Undeletable": "boolean*",
+                    "MediaSwitchDisplayName": "string*",
+                    "DetectTransferLoop": "boolean*",
+                    "SuccessRetryInterval": "string*",
+                    "RetriesOnSuccess": "string*",
+                    "EventList": "string*",
+                    "ScheduleSetObjectId": "string*",
+                    "InitialDelay": "string*",
+                    "RepeatInterval": "string*",
+                    "RepeatNotify": "boolean*"
+                    
+                }
+            
+            },
+            "users_privatelists": {
+                "operations": {
+                    "usersprivatelistsList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "users",
+                            "iterator": "ObjectId",
+                            "path": "/users/{iterator}/privatelists",
+                            "base": {
+                                "ObjectId": "{iterator}"
+                            }
+                        },
+                        "processing_options": {
+                            "output_field": "NotificationDevice"
+                        },
+                        "query_parameters": {},
+                        "maxSessionCount": 2
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "URI": "string",
+                    "ObjectId": "string*",
+                    "DisplayName": "string*",
+                    "UserObjectId": "string*",
+                    "UserURI": "string",
+                    "DtmfName": "string*",
+                    "Alias": "string*",
+                    "VoiceName": "string*",
+                    "VoiceFileURI": "string*",
+                    "NumericId": "string*",
+                    "IsAddressable": "boolean*"
+                }
+            
+            },
+            "users_roles": {
+                "operations": {
+                    "usersrolesList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "users",
+                            "iterator": "ObjectId",
+                            "path": "/users/{iterator}/userroles",
+                            "base": {
+                                "ObjectId": "{iterator}"
+                            }
+                        },
+                        "processing_options": {
+                            "output_field": "UserRole"
+                        },
+                        "query_parameters": {},
+                        "maxSessionCount": 2
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "URI": "string",
+                    "UserObjectId": "string*",
+                    "ObjectId": "string*",
+                    "UserURI": "string*",
+                    "RoleObjectId": "string*",
+                    "RoleURI": "string*",
+                    "RoleName": "string*",
+                    "Alias": "string*"
+                    
                 }
             
             }
