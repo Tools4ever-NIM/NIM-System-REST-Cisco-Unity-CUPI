@@ -68,7 +68,7 @@
                             "output_field": ""
                         },
                         "query_parameters": {},
-                        "maxSessionCount": 2
+                        "maxSessionCount": 20
                     }
                 },
                 "parameters": {},
@@ -226,6 +226,80 @@
                 }
             
             },
+            "interviewhandlers": {
+                "operations": {
+                    "interviewhandlersList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/handlers/interviewhandlers"
+                        },
+                        "processing_options": {
+                            "output_field": "InterviewHandler"
+                        },
+                        "query_parameters": {}
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "URI": "string",
+                    "ObjectId": "string*",
+                    "CreationTime": "date*",
+                    "Language": "string*",
+                    "DisplayName": "string*",
+                    "Undeletable": "boolean*",
+                    "LocationObjectId": "string*",
+                    "LocationURI": "string",
+                    "SendUrgentMsg": "string*",
+                    "RecipientSubscriberObjectId": "string*",
+                    "RecipientUserURI": "string",
+                    "AfterMessageAction": "string*",
+                    "AfterMessageTargetConversation": "string*",
+                    "AfterMessageTargetHandlerObjectId": "string*",
+                    "UseCallLanguage": "boolean*",
+                    "UseDefaultLanguage": "boolean*",
+                    "DispatchDelivery": "boolean*",
+                    "PartitionObjectId": "string*",
+                    "PartitionURI": "string",
+                    "InterviewQuestionsURI": "string"
+                }
+            
+            },
+            "mailboxstores": {
+                "operations": {
+                    "mailboxstoresList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/mailboxstores"
+                        },
+                        "processing_options": {
+                            "output_field": "MailboxStore"
+                        },
+                        "query_parameters": {}
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "URI": "string",
+                    "MailDatabase": "string*",
+                    "Server": "string*",
+                    "ObjectId": "string*",
+                    "Mounted": "boolean*",
+                    "RequiredSecurity": "string*",
+                    "MailboxStoreType": "string*",
+                    "DisplayName": "string*",
+                    "DbInstance": "string*",
+                    "Status": "string*",
+                    "Undeletable": "boolean*",
+                    "LastError": "string*",
+                    "MaxSizeMB": "string*",
+                    "MailboxURI": "string",
+                    "TotalSizeOfMailbox": "string*",
+                    "TimeAtWhichSizeCalculated": "date*"
+                }
+            
+            },
             "partitions": {
                 "operations": {
                     "partitionsList": {
@@ -248,6 +322,138 @@
                     "Description": "string*",
                     "LocationObjectId": "string*",
                     "LocationURI": "string"
+                }
+            
+            },
+            "phonesystems": {
+                "operations": {
+                    "phonesystemsList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/phonesystems"
+                        },
+                        "processing_options": {
+                            "output_field": "PhoneSystem"
+                        },
+                        "query_parameters": {}
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "URI": "string",
+                    "ObjectId": "string*",
+                    "DisplayName": "string*",
+                    "MwiAlwaysUpdate": "boolean*",
+                    "MwiPortMemory": "boolean*",
+                    "CallLoopSupervisedTransferDetect": "boolean*",
+                    "CallLoopForwardNotificationDetect": "boolean*",
+                    "CallLoopDTMF":  "string*",
+                    "CallLoopGuardTimeMs":  "string*",
+                    "PortCount":  "string*",
+                    "EnablePhoneApplications": "boolean*",
+                    "DefaultTRaPSwitch": "boolean*",
+                    "MwiForceOff": "boolean*",
+                    "RestrictDialUnconditional": "boolean*",
+                    "RestrictDialScheduled": "boolean*",
+                    "RestrictDialStartTime":  "string*",
+                    "RestrictDialEndTime":  "string*",
+                    "CallLoopExtensionDetect": "boolean*",
+                    "AXLServerURI": "string",
+                    "PhoneSystemAssociationURI":  "string"
+                }
+            
+            },
+            "portgroups": {
+                "operations": {
+                    "portgroupsList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/portgroups"
+                        },
+                        "processing_options": {
+                            "output_field": "PortGroup"
+                        },
+                        "query_parameters": {}
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "URI": "string",
+                    "MediaPortGroupTemplateObjectId": "string*",
+                    "MediaSwitchObjectId": "string*",
+                    "PhoneSystemURI": "string",
+                    "TelephonyIntegrationMethodEnum": "string*",
+                    "EnableMWI": "boolean*",
+                    "DisplayName": "string*",
+                    "EnableAGC": "boolean*",
+                    "CcmDoAutoFailback": "boolean*",
+                    "MwiOnCode": "string*",
+                    "MwiOffCode": "string*",
+                    "MwiRetryCountOnSuccess": "string*",
+                    "MwiRetryIntervalOnSuccessMs": "string*",
+                    "ObjectId": "string*",
+                    "SkinnyDevicePrefix": "string*",
+                    "MwiMinRequestIntervalMs": "string*",
+                    "OutgoingGuardTimeMs": "string*",
+                    "OutgoingPostDialDelayMs": "string*",
+                    "OutgoingPreDialDelayMs": "string*",
+                    "DelayBeforeOpeningMs": "string*",
+                    "DtmfDialInterDigitDelayMs": "string*",
+                    "MwiMaxConcurrentRequests": "string*",
+                    "MediaSwitchDisplayName": "string*",
+                    "PortCount": "string*",
+                    "SipDoSRTP": "boolean*",
+                    "SipTLSModeEnum": "string*",
+                    "ResetStatusEnum": "string*",
+                    "RecordingDTMFClipMs": "string*",
+                    "RecordingToneExtraClipMs": "string*",
+                    "PreferredCallControl": "string*",
+                    "NoiseFreeEnable": "boolean*",
+                    "SipEnableNextGenSecurity": "boolean*",
+                    "VideoProfile": "string*",
+                    "PortGroupServerURI": "string",
+                    "PortGroupCodecURI": "string",
+                    "PortURI": "string"
+                }
+            
+            },
+            "ports": {
+                "operations": {
+                    "portsList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/ports"
+                        },
+                        "processing_options": {
+                            "output_field": "Port"
+                        },
+                        "query_parameters": {}
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "URI": "string",
+                    "ObjectId": "string*",
+                    "MediaPortGroupObjectId": "string*",
+                    "PortGroupURI": "string",
+                    "TelephonyIntegrationMethodEnum": "string*",
+                    "SkinnySecurityModeEnum": "string*",
+                    "VmsServerObjectId": "string*",
+                    "HuntOrder": "string*",
+                    "DisplayName": "string*",
+                    "CapAnswer": "boolean*",
+                    "CapNotification": "boolean*",
+                    "CapMWI": "boolean*",
+                    "CapEnabled": "boolean*",
+                    "CapTrapConnection": "boolean*",
+                    "MediaSwitchDisplayName": "string*",
+                    "MediaSwitchObjectId": "string*",
+                    "PhoneSystemURI": "string",
+                    "MediaPortGroupDisplayName": "string*",
+                    "VmsServerName": "string*"
                 }
             
             },
@@ -274,6 +480,50 @@
                     "IsEnabled": "boolean*",
                     "ReadOnly": "boolean*"
                     
+                }
+            
+            },
+            "routingrules": {
+                "operations": {
+                    "routingrulesList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/routingrules"
+                        },
+                        "processing_options": {
+                            "output_field": "RoutingRule"
+                        },
+                        "query_parameters": {}
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "URI": "string",
+                    "ObjectId": "string*",
+                    "DisplayName": "string*",
+                    "State": "string*",
+                    "RuleIndex": "string*",
+                    "Type": "string*",
+                    "Flags": "string*",
+                    "RouteTargetConversation": "string*",
+                    "RouteTargetHandlerObjectId": "string*",
+                    "RouteTargetHandlerDisplayName": "string*",
+                    "RouteTargetHandlerObjectType": "string*",
+                    "RouteAction": "string*",
+                    "LanguageCode": "string*",
+                    "UseDefaultLanguage": "boolean*",
+                    "UseCallLanguage": "boolean*",
+                    "CallType": "string*",
+                    "SearchSpaceObjectId": "string*",
+                    "SearchSpaceURI": "string",
+                    "Undeletable": "boolean*",
+                    "RoutingRuleConditionsURI": "string",
+                    "CallHandlerURI": "string",
+                    "DirectoryHandlerURI": "string",
+                    "InterviewHandlerURI": "string",
+                    "ConversationURI": "string",
+                    "SearchSpaceFetchURI": "string"
                 }
             
             },
@@ -599,7 +849,10 @@
                             "output_field": "AlternateExtension"
                         },
                         "query_parameters": {},
-                        "maxSessionCount": 2
+                        "maxSessionCount": 20,
+                        "warning_only": [
+                            404
+                        ]
                     }
                 },
                 "parameters": {},
@@ -634,7 +887,10 @@
                             "output_field": ""
                         },
                         "query_parameters": {},
-                        "maxSessionCount": 2
+                        "maxSessionCount": 20,
+                        "warning_only": [
+                            404
+                        ]
                     }
                 },
                 "parameters": {},
@@ -702,7 +958,10 @@
                             "output_field": ""
                         },
                         "query_parameters": {},
-                        "maxSessionCount": 2
+                        "maxSessionCount": 20,
+                        "warning_only": [
+                            404
+                        ]
                     }
                 },
                 "parameters": {},
@@ -746,7 +1005,10 @@
                             "output_field": ""
                         },
                         "query_parameters": {},
-                        "maxSessionCount": 2
+                        "maxSessionCount": 20,
+                        "warning_only": [
+                            404
+                        ]
                     }
                 },
                 "parameters": {},
@@ -791,7 +1053,10 @@
                             "output_field": ""
                         },
                         "query_parameters": {},
-                        "maxSessionCount": 2
+                        "maxSessionCount": 20,
+                        "warning_only": [
+                            404
+                        ]
                     }
                 },
                 "parameters": {},
@@ -826,7 +1091,10 @@
                             "output_field": ""
                         },
                         "query_parameters": {},
-                        "maxSessionCount": 2
+                        "maxSessionCount": 20,
+                        "warning_only": [
+                            404
+                        ]
                     }
                 },
                 "parameters": {},
@@ -859,7 +1127,10 @@
                             "output_field": "Mwi"
                         },
                         "query_parameters": {},
-                        "maxSessionCount": 2
+                        "maxSessionCount": 20,
+                        "warning_only": [
+                            404
+                        ]
                     }
                 },
                 "parameters": {},
@@ -901,7 +1172,10 @@
                             "output_field": "NotificationDevice"
                         },
                         "query_parameters": {},
-                        "maxSessionCount": 2
+                        "maxSessionCount": 20,
+                        "warning_only": [
+                            404
+                        ]
                     }
                 },
                 "parameters": {},
@@ -962,7 +1236,10 @@
                             "output_field": "NotificationDevice"
                         },
                         "query_parameters": {},
-                        "maxSessionCount": 2
+                        "maxSessionCount": 20,
+                        "warning_only": [
+                            404
+                        ]
                     }
                 },
                 "parameters": {},
@@ -999,7 +1276,10 @@
                             "output_field": "UserRole"
                         },
                         "query_parameters": {},
-                        "maxSessionCount": 2
+                        "maxSessionCount": 20,
+                        "warning_only": [
+                            404
+                        ]
                     }
                 },
                 "parameters": {},
@@ -1023,12 +1303,29 @@
         "config": {
             "baseUrl": "https://{tenant_id}/vmrest",
             "get": {
-                "maxPageCount": 500,
+                "maxPageCount": 1000,
                 "query_parameters": {
+                },
+                "pagination": {
+                    "mode": "generic",
+                    "path":[],
+                    "params":{
+                        "pageNumber":"{page_number}",
+                        "rowsPerPage":"1000"
+                    }
                 }
             },
             "authentication": "basic_auth",
             "call_handling": "generic",
+            "retry": [
+                {
+                    "type": "statusCode",
+                    "statusCode": 503
+                },
+                {
+                    "type": "connectionError"
+                }
+            ],
             "test_connection": {
                 "url": "/users?query=(alias startswith ZZ)"
             },
