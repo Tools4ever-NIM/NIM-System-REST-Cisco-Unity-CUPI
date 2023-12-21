@@ -527,6 +527,32 @@
                 }
             
             },
+            "schedulesets": {
+                "operations": {
+                    "schedulesetsList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/schedulesets"
+                        },
+                        "processing_options": {
+                            "output_field": "ScheduleSet"
+                        },
+                        "query_parameters": {}
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "URI": "string",
+                    "ObjectId": "string*",
+                    "DisplayName": "string*",
+                    "OwnerLocationObjectId": "string*",
+                    "OwnerLocationURI": "string",
+                    "Undeletable": "string*",
+                    "ScheduleSetMembersURI": "string*"
+                }
+            
+            },
             "smtpproxyaddresses": {
                 "operations": {
                     "smtpproxyaddressesList": {
@@ -1320,7 +1346,12 @@
             "retry": [
                 {
                     "type": "statusCode",
-                    "statusCode": 503
+                    "statusCode": 503,
+                    "retry": {
+                        "type": "simple",
+                        "maxCount": 10,
+                        "waitTime": 1
+                    }
                 },
                 {
                     "type": "connectionError"
