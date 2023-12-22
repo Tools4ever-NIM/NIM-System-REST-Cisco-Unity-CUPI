@@ -868,7 +868,7 @@
                             "iterator": "ObjectId",
                             "path": "/users/{iterator}/alternateextensions",
                             "base": {
-                                "ObjectId": "{iterator}"
+                                "UserObjectId": "{iterator}"
                             }
                         },
                         "processing_options": {
@@ -892,7 +892,8 @@
                     "ObjectId": "string*",
                     "PartitionObjectId": "string*",
                     "PartitionURI": "string*",
-                    "AlternateExtensionAdvancedURI": "string*"
+                    "AlternateExtensionAdvancedURI": "string*",
+                    "UserObjectId": "string*"
                 }
             
             },
@@ -963,7 +964,8 @@
                     "GreetingsURI": "string",
                     "TransferOptionsURI": "string",
                     "MenuEntriesURI": "string",
-                    "CallHandlerOwnerURI": "string"
+                    "CallHandlerOwnerURI": "string",
+                    "CallHandlerObjectId": "string*"
                 }
             
             },
@@ -977,7 +979,7 @@
                             "iterator": "ObjectId",
                             "path": "/users/{iterator}/credential/pin",
                             "base": {
-                                "ObjectId": "{iterator}"
+                                "UserObjectId": "{iterator}"
                             }
                         },
                         "processing_options": {
@@ -1009,8 +1011,8 @@
                     "Alias": "string*",
                     "CredMustChange": "boolean*",
                     "CredentialPolicyObjectId": "string*",
-                    "Hacked": "boolean*"
-                    
+                    "Hacked": "boolean*",
+                    "UserObjectId": "string*"
                 }
             
             },
@@ -1024,7 +1026,7 @@
                             "iterator": "ObjectId",
                             "path": "/users/{iterator}/credential/password",
                             "base": {
-                                "ObjectId": "{iterator}"
+                                "UserObjectId": "{iterator}"
                             }
                         },
                         "processing_options": {
@@ -1058,7 +1060,6 @@
                     "CredentialPolicyObjectId": "string*",
                     "Hacked": "boolean*",
                     "EncryptionType": "string*"
-                    
                 }
             
             },
@@ -1072,7 +1073,7 @@
                             "iterator": "ObjectId",
                             "path": "/users/{iterator}/mailboxattributes",
                             "base": {
-                                "ObjectId": "{iterator}"
+                                "UserObjectId": "{iterator}"
                             }
                         },
                         "processing_options": {
@@ -1097,7 +1098,8 @@
                     "NumMessages": "string*",
                     "Send": "string*",
                     "Receive": "string*",
-                    "Warn": "string*"
+                    "Warn": "string*",
+                    "UserObjectId": "string*"
                 }
             },
             "users_messagehandlers": {
@@ -1110,7 +1112,7 @@
                             "iterator": "ObjectId",
                             "path": "/users/{iterator}/messagehandlers",
                             "base": {
-                                "ObjectId": "{iterator}"
+                                "UserObjectId": "{iterator}"
                             }
                         },
                         "processing_options": {
@@ -1133,7 +1135,8 @@
                     "VoicemailAction": "string*",
                     "EmailAction": "string*",
                     "FaxAction": "string*",
-                    "DeliveryReceiptAction": "string*"
+                    "DeliveryReceiptAction": "string*",
+                    "UserObjectId": "string*"
                 }
             },
             "users_mwi": {
@@ -1146,7 +1149,7 @@
                             "iterator": "ObjectId",
                             "path": "/users/{iterator}/mwi",
                             "base": {
-                                "ObjectId": "{iterator}"
+                                "UserObjectId": "{iterator}"
                             }
                         },
                         "processing_options": {
@@ -1176,8 +1179,8 @@
                     "IncludeFaxMessages": "boolean*",
                     "Active": "boolean*",
                     "UsePrimaryExtension": "boolean*",
-                    "MediaSwitchDisplayName": "string*"
-                    
+                    "MediaSwitchDisplayName": "string*",
+                    "UserObjectId": "string*"
                 }
             
             },
@@ -1191,7 +1194,7 @@
                             "iterator": "ObjectId",
                             "path": "/users/{iterator}/notificationdevices",
                             "base": {
-                                "ObjectId": "{iterator}"
+                                "UserObjectId": "{iterator}"
                             }
                         },
                         "processing_options": {
@@ -1240,8 +1243,8 @@
                     "ScheduleSetObjectId": "string*",
                     "InitialDelay": "string*",
                     "RepeatInterval": "string*",
-                    "RepeatNotify": "boolean*"
-                    
+                    "RepeatNotify": "boolean*",
+                    "UserObjectId": "string*"
                 }
             
             },
@@ -1252,7 +1255,7 @@
                         "call": {
                             "mode": "iteration",
                             "table": "users",
-                            "iterator": "ObjectId",
+                            "iterator": "UserObjectId",
                             "path": "/users/{iterator}/privatelists",
                             "base": {
                                 "ObjectId": "{iterator}"
@@ -1295,7 +1298,7 @@
                             "iterator": "ObjectId",
                             "path": "/users/{iterator}/userroles",
                             "base": {
-                                "ObjectId": "{iterator}"
+                                "UserObjectId": "{iterator}"
                             }
                         },
                         "processing_options": {
