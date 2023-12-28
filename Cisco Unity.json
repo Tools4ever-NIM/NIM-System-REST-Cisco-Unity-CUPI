@@ -831,8 +831,7 @@
                     "userCreate": {
                         "method": "post",
                         "call": {
-                            "path": "/users",
-                            "post_processing": "child_tables"
+                            "path": "/users"
                         },
                         "processing_options": {
                             "output_field": "User"
@@ -851,6 +850,22 @@
                             "DtmfAccessId",
                             "TemplateAlias",
                             "CreateSmtpProxyFromCorp"
+                        ]
+                    },
+                    "userUpdate": {
+                        "method": "put",
+                        "call": {
+                            "path": "/users/{ObjectId}"
+                        },
+                        "processing_options": {
+                            "output_field": "User"
+                        },
+                        "query_parameters": {
+                        },
+                        "semantics": "update",
+                        "resource_allowance_default": "optional",
+                        "resource_mandatory": [
+                            "ObjectId"
                         ]
                     }
                 },
@@ -1033,6 +1048,23 @@
                         "maxSessionCount": 20,
                         "warning_only": [
                             404
+                        ]
+                    },
+                    "userscredentialpinUpdate": {
+                        "method": "post",
+                        "call": {
+                            "path": "/users/{UserObjectId}/credential/pin"
+                        },
+                        "processing_options": {
+                            "output_field": "User"
+                        },
+                        "query_parameters": {
+                        },
+                        "semantics": "create",
+                        "resource_allowance_default": "prohibited",
+                        "resource_mandatory": [
+                            "UserObjectId",
+                            "Credentials"
                         ]
                     }
                 },
