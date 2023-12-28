@@ -564,6 +564,22 @@
                             "output_field": "SmtpProxyAddress"
                         },
                         "query_parameters": {}
+                    },
+                    "smtpproxyaddressesCreate": {
+                        "method": "post",
+                        "call": {
+                            "path": "/smtpproxyaddresses"
+                        },
+                        "processing_options": {
+                            "output_field": "User"
+                        },
+                        "query_parameters": {},
+                        "semantics": "create",
+                        "resource_allowance_default": "prohibited",
+                        "resource_mandatory": [
+                            "SmtpAddress",
+                            "ObjectGlobalUserObjectId"
+                        ]
                     }
                 },
                 "parameters": {},
@@ -811,6 +827,31 @@
                             "output_field": "User"
                         },
                         "query_parameters": {}
+                    },
+                    "userCreate": {
+                        "method": "post",
+                        "call": {
+                            "path": "/users",
+                            "post_processing": "child_tables"
+                        },
+                        "processing_options": {
+                            "output_field": "User"
+                        },
+                        "query_parameters": {
+                            "templateAlias": "{TemplateAlias}"
+                        },
+                        "semantics": "create",
+                        "resource_allowance_default": "prohibited",
+                        "resource_mandatory": [
+                            "Alias",
+                            "EmailAddress",
+                            "FirstName",
+                            "LastName",
+                            "LdapType",
+                            "DtmfAccessId",
+                            "TemplateAlias",
+                            "CreateSmtpProxyFromCorp"
+                        ]
                     }
                 },
                 "parameters": {},
@@ -836,7 +877,7 @@
                     "PhoneSystemURI": "string",
                     "CallHandlerObjectId": "string",
                     "CallhandlerURI": "string",
-                    "DtmfAccessId": "string",
+                    "DtmfAccessId": "number",
                     "VoiceNameRequired": "boolean",
                     "PartitionObjectId": "string",
                     "PartitionURI": "string",
@@ -854,7 +895,10 @@
                     "UserVoicePinURI": "string",
                     "UserRoleURI": "string",
                     "SmtpProxyAddressesURI": "string",
-                    "AlternateNamesURI": "string"
+                    "AlternateNamesURI": "string",
+                    "TemplateAlias": "string",
+                    "LdapType": "number",
+                    "CreateSmtpProxyFromCorp": "boolean"
                 }
             
             },
@@ -1011,8 +1055,7 @@
                     "Alias": "string*",
                     "CredMustChange": "boolean*",
                     "CredentialPolicyObjectId": "string*",
-                    "Hacked": "boolean*",
-                    "UserObjectId": "string*"
+                    "Hacked": "boolean*"
                 }
             
             },
@@ -1322,6 +1365,51 @@
                     "RoleURI": "string*",
                     "RoleName": "string*",
                     "Alias": "string*"
+                    
+                }
+            
+            },
+            "users_externalserviceaccounts": {
+                "operations": {
+                    "usersexternalserviceaccountsList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "users",
+                            "iterator": "ObjectId",
+                            "path": "/users/{iterator}/externalserviceaccounts",
+                            "base": {
+                                "UserObjectId": "{iterator}"
+                            }
+                        },
+                        "processing_options": {
+                            "output_field": "ExternalServiceAccount"
+                        },
+                        "query_parameters": {},
+                        "maxSessionCount": 20,
+                        "warning_only": [
+                            404
+                        ]
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "URI": "string*",
+                    "ObjectId": "string*",
+                    "ExternalServiceObjectId": "string*",
+                    "SubscriberObjectId": "string*",
+                    "UserURI": "string*",
+                    "EnableCalendarCapability": "boolean*",
+                    "EnableMeetingCapability": "boolean*",
+                    "EnableTtsOfEmailCapability": "boolean*",
+                    "IsPrimaryMeetingService": "boolean*",
+                    "LoginType": "string*",
+                    "UserPassword": "string*",
+                    "EmailAddress": "string*",
+                    "EnableMailboxSynchCapability": "string*",
+                    "EmailAddressUseCorp": "string*",
+                    "UserExternalServiceResetURI": "string*"
                     
                 }
             
