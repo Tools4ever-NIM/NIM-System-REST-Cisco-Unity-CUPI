@@ -977,6 +977,43 @@
                         "warning_only": [
                             404
                         ]
+                    },
+                    "userscallhandlersCreate": {
+                        "method": "put",
+                        "call": {
+                            "path": "/handlers/callhandlers"
+                        },
+                        "processing_options": {
+                            "output_field": ""
+                        },
+                        "query_parameters": {
+                            "templateObjectId": "{TemplateObjectId}"
+                        },
+                        "semantics": "create",
+                        "resource_allowance_default": "optional",
+                        "resource_prohibited": [
+                            "ObjectId"
+                        ],
+                        "resource_mandatory": [
+                            "DisplayName",
+                            "TemplateObjectId"
+                        ]
+                    },
+                    "userscallhandlersUpdate": {
+                        "method": "put",
+                        "call": {
+                            "path": "/handlers/callhandlers/{ObjectId}"
+                        },
+                        "processing_options": {
+                            "output_field": ""
+                        },
+                        "query_parameters": {
+                        },
+                        "semantics": "update",
+                        "resource_allowance_default": "optional",
+                        "resource_mandatory": [
+                            "ObjectId"
+                        ]
                     }
                 },
                 "parameters": {},
@@ -1024,7 +1061,8 @@
                     "TransferOptionsURI": "string",
                     "MenuEntriesURI": "string",
                     "CallHandlerOwnerURI": "string",
-                    "CallHandlerObjectId": "string*"
+                    "CallHandlerObjectId": "string*",
+                    "TemplateObjectId": "string*"
                 }
             
             },
@@ -1422,6 +1460,26 @@
                         "warning_only": [
                             404
                         ]
+                    },
+                    "usersexternalserviceaccountsCreate": {
+                        "method": "post",
+                        "call": {
+                            "path": "/users/{SubscriberObjectId}/externalserviceaccounts"
+                        },
+                        "processing_options": {
+                            "output_field": "ExternalServiceAccount"
+                        },
+                        "query_parameters": {
+                        },
+                        "semantics": "create",
+                        "resource_allowance_default": "prohibited",
+                        "resource_mandatory": [
+                            "ExternalServiceObjectId",
+                            "EnableCalendarCapability",
+                            "LoginType",
+                            "EnableMailboxSynchCapability",
+                            "EmailAddressUseCorp"
+                        ]
                     }
                 },
                 "parameters": {},
@@ -1442,6 +1500,74 @@
                     "EnableMailboxSynchCapability": "string*",
                     "EmailAddressUseCorp": "string*",
                     "UserExternalServiceResetURI": "string*"
+                    
+                }
+            
+            },
+            "callhandler_transferoptions": {
+                "operations": {
+                    "callhandlertransferoptionsList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "users_callhandlers",
+                            "iterator": "ObjectId",
+                            "path": "/handlers/callhandlers/{iterator}/transferoptions",
+                            "base": {
+                                "UserObjectId": "{iterator}"
+                            }
+                        },
+                        "processing_options": {
+                            "output_field": "TransferOption"
+                        },
+                        "query_parameters": {},
+                        "maxSessionCount": 20,
+                        "warning_only": [
+                            404
+                        ]
+                    },
+                    "callhandlertransferoptionsUpdate": {
+                        "method": "put",
+                        "call": {
+                            "path": "/handlers/callhandlers/{CallHandlerObjectId}/transferoptions/{Action}"
+                        },
+                        "processing_options": {
+                            "output_field": "TransferOption"
+                        },
+                        "query_parameters": {
+                        },
+                        "semantics": "update",
+                        "resource_allowance_default": "prohibited",
+                        "resource_mandatory": [
+                            "CallHandlerObjectId"
+                        ]
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "URI": "string",
+                    "CallHandlerObjectId": "string*",
+                    "CallhandlerURI": "string",
+                    "TransferOptionType": "string*",
+                    "Action": "string*",
+                    "Extension": "string*",
+                    "RnaAction": "string*",
+                    "TimeExpires": "string*",
+                    "TransferAnnounce": "string*",
+                    "TransferConfirm": "string*",
+                    "TransferDtDetect": "string*",
+                    "TransferHoldingMode": "string*",
+                    "TransferIntroduce": "string*",
+                    "TransferRings": "string*",
+                    "TransferScreening": "string*",
+                    "TransferType": "string*",
+                    "MediaSwitchObjectId": "string*",
+                    "PhoneSystemURI": "string",
+                    "UsePrimaryExtension": "string*",
+                    "PlayTransferPrompt": "string*",
+                    "PersonalCallTransfer": "string*",
+                    "Enabled": "string*"
                     
                 }
             
