@@ -1529,7 +1529,7 @@
                     "callhandlertransferoptionsUpdate": {
                         "method": "put",
                         "call": {
-                            "path": "/handlers/callhandlers/{CallHandlerObjectId}/transferoptions/{Action}"
+                            "path": "/handlers/callhandlers/{CallHandlerObjectId}/transferoptions/{TransferOptionType}"
                         },
                         "processing_options": {
                             "output_field": "TransferOption"
@@ -1544,7 +1544,7 @@
                     }
                 },
                 "parameters": {},
-                "key": "ObjectId",
+                "key": "CallHandlerObjectId",
                 "resources": {
                     "URI": "string",
                     "CallHandlerObjectId": "string*",
