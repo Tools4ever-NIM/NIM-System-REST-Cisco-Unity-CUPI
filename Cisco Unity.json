@@ -867,6 +867,22 @@
                         "resource_mandatory": [
                             "ObjectId"
                         ]
+                    },
+                    "userDelete": {
+                        "method": "delete",
+                        "call": {
+                            "path": "/users/{ObjectId}"
+                        },
+                        "processing_options": {
+                            "output_field": "User"
+                        },
+                        "query_parameters": {
+                        },
+                        "semantics": "delete",
+                        "resource_allowance_default": "prohibited",
+                        "resource_mandatory": [
+                            "ObjectId"
+                        ]
                     }
                 },
                 "parameters": {},
@@ -1089,7 +1105,7 @@
                         ]
                     },
                     "userscredentialpinUpdate": {
-                        "method": "post",
+                        "method": "put",
                         "call": {
                             "path": "/users/{UserObjectId}/credential/pin"
                         },
