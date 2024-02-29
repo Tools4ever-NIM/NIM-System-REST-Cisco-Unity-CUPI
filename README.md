@@ -4,6 +4,7 @@
 
 ## Data Tables
 - Alternate Names
+- Call Handler Transfer Options
 - Coses
 - Coses Detail
 - Directory Handlers
@@ -31,10 +32,21 @@
 - Users Notification Devices
 - Users Private Lists
 - Users Roles
+- Users External Service Accounts
+
 
 
 ## Actions
-N/A
+- Call Handler Transfer Options
+    - Update
+- SMTP Proxy Addresses
+    - Create
+- Users
+    - Create/Update/Delete
+- Users Call Handlers
+    - Create/Update
+- Users Credential Pin
+    - Update
 
 # NIM Docs
 The official NIM documentation can be found at: https://docs.nimsuite.com
