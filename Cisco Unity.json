@@ -527,6 +527,32 @@
                 }
             
             },
+            "schedulesets": {
+                "operations": {
+                    "schedulesetsList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/schedulesets"
+                        },
+                        "processing_options": {
+                            "output_field": "ScheduleSet"
+                        },
+                        "query_parameters": {}
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "URI": "string",
+                    "ObjectId": "string*",
+                    "DisplayName": "string*",
+                    "OwnerLocationObjectId": "string*",
+                    "OwnerLocationURI": "string",
+                    "Undeletable": "string*",
+                    "ScheduleSetMembersURI": "string*"
+                }
+            
+            },
             "smtpproxyaddresses": {
                 "operations": {
                     "smtpproxyaddressesList": {
@@ -538,6 +564,22 @@
                             "output_field": "SmtpProxyAddress"
                         },
                         "query_parameters": {}
+                    },
+                    "smtpproxyaddressesCreate": {
+                        "method": "post",
+                        "call": {
+                            "path": "/smtpproxyaddresses"
+                        },
+                        "processing_options": {
+                            "output_field": "User"
+                        },
+                        "query_parameters": {},
+                        "semantics": "create",
+                        "resource_allowance_default": "prohibited",
+                        "resource_mandatory": [
+                            "SmtpAddress",
+                            "ObjectGlobalUserObjectId"
+                        ]
                     }
                 },
                 "parameters": {},
@@ -785,6 +827,62 @@
                             "output_field": "User"
                         },
                         "query_parameters": {}
+                    },
+                    "userCreate": {
+                        "method": "post",
+                        "call": {
+                            "path": "/users"
+                        },
+                        "processing_options": {
+                            "output_field": "User"
+                        },
+                        "query_parameters": {
+                            "templateAlias": "{TemplateAlias}"
+                        },
+                        "semantics": "create",
+                        "resource_allowance_default": "prohibited",
+                        "resource_mandatory": [
+                            "Alias",
+                            "EmailAddress",
+                            "FirstName",
+                            "LastName",
+                            "LdapType",
+                            "DtmfAccessId",
+                            "TemplateAlias",
+                            "CreateSmtpProxyFromCorp"
+                        ]
+                    },
+                    "userUpdate": {
+                        "method": "put",
+                        "call": {
+                            "path": "/users/{ObjectId}"
+                        },
+                        "processing_options": {
+                            "output_field": "User"
+                        },
+                        "query_parameters": {
+                        },
+                        "semantics": "update",
+                        "resource_allowance_default": "optional",
+                        "resource_mandatory": [
+                            "ObjectId"
+                        ]
+                    },
+                    "userDelete": {
+                        "method": "delete",
+                        "call": {
+                            "path": "/users/{ObjectId}"
+                        },
+                        "processing_options": {
+                            "output_field": "User"
+                        },
+                        "query_parameters": {
+                        },
+                        "semantics": "delete",
+                        "resource_allowance_default": "prohibited",
+                        "resource_mandatory": [
+                            "ObjectId"
+                        ]
                     }
                 },
                 "parameters": {},
@@ -810,7 +908,7 @@
                     "PhoneSystemURI": "string",
                     "CallHandlerObjectId": "string",
                     "CallhandlerURI": "string",
-                    "DtmfAccessId": "string",
+                    "DtmfAccessId": "number",
                     "VoiceNameRequired": "boolean",
                     "PartitionObjectId": "string",
                     "PartitionURI": "string",
@@ -828,7 +926,10 @@
                     "UserVoicePinURI": "string",
                     "UserRoleURI": "string",
                     "SmtpProxyAddressesURI": "string",
-                    "AlternateNamesURI": "string"
+                    "AlternateNamesURI": "string",
+                    "TemplateAlias": "string",
+                    "LdapType": "number",
+                    "CreateSmtpProxyFromCorp": "boolean"
                 }
             
             },
@@ -842,7 +943,7 @@
                             "iterator": "ObjectId",
                             "path": "/users/{iterator}/alternateextensions",
                             "base": {
-                                "ObjectId": "{iterator}"
+                                "UserObjectId": "{iterator}"
                             }
                         },
                         "processing_options": {
@@ -866,7 +967,8 @@
                     "ObjectId": "string*",
                     "PartitionObjectId": "string*",
                     "PartitionURI": "string*",
-                    "AlternateExtensionAdvancedURI": "string*"
+                    "AlternateExtensionAdvancedURI": "string*",
+                    "UserObjectId": "string*"
                 }
             
             },
@@ -890,6 +992,43 @@
                         "maxSessionCount": 20,
                         "warning_only": [
                             404
+                        ]
+                    },
+                    "userscallhandlersCreate": {
+                        "method": "put",
+                        "call": {
+                            "path": "/handlers/callhandlers"
+                        },
+                        "processing_options": {
+                            "output_field": ""
+                        },
+                        "query_parameters": {
+                            "templateObjectId": "{TemplateObjectId}"
+                        },
+                        "semantics": "create",
+                        "resource_allowance_default": "optional",
+                        "resource_prohibited": [
+                            "ObjectId"
+                        ],
+                        "resource_mandatory": [
+                            "DisplayName",
+                            "TemplateObjectId"
+                        ]
+                    },
+                    "userscallhandlersUpdate": {
+                        "method": "put",
+                        "call": {
+                            "path": "/handlers/callhandlers/{ObjectId}"
+                        },
+                        "processing_options": {
+                            "output_field": ""
+                        },
+                        "query_parameters": {
+                        },
+                        "semantics": "update",
+                        "resource_allowance_default": "optional",
+                        "resource_mandatory": [
+                            "ObjectId"
                         ]
                     }
                 },
@@ -937,7 +1076,9 @@
                     "GreetingsURI": "string",
                     "TransferOptionsURI": "string",
                     "MenuEntriesURI": "string",
-                    "CallHandlerOwnerURI": "string"
+                    "CallHandlerOwnerURI": "string",
+                    "CallHandlerObjectId": "string*",
+                    "TemplateObjectId": "string*"
                 }
             
             },
@@ -951,7 +1092,7 @@
                             "iterator": "ObjectId",
                             "path": "/users/{iterator}/credential/pin",
                             "base": {
-                                "ObjectId": "{iterator}"
+                                "UserObjectId": "{iterator}"
                             }
                         },
                         "processing_options": {
@@ -961,6 +1102,23 @@
                         "maxSessionCount": 20,
                         "warning_only": [
                             404
+                        ]
+                    },
+                    "userscredentialpinUpdate": {
+                        "method": "put",
+                        "call": {
+                            "path": "/users/{UserObjectId}/credential/pin"
+                        },
+                        "processing_options": {
+                            "output_field": "User"
+                        },
+                        "query_parameters": {
+                        },
+                        "semantics": "create",
+                        "resource_allowance_default": "prohibited",
+                        "resource_mandatory": [
+                            "UserObjectId",
+                            "Credentials"
                         ]
                     }
                 },
@@ -984,7 +1142,6 @@
                     "CredMustChange": "boolean*",
                     "CredentialPolicyObjectId": "string*",
                     "Hacked": "boolean*"
-                    
                 }
             
             },
@@ -998,7 +1155,7 @@
                             "iterator": "ObjectId",
                             "path": "/users/{iterator}/credential/password",
                             "base": {
-                                "ObjectId": "{iterator}"
+                                "UserObjectId": "{iterator}"
                             }
                         },
                         "processing_options": {
@@ -1032,7 +1189,6 @@
                     "CredentialPolicyObjectId": "string*",
                     "Hacked": "boolean*",
                     "EncryptionType": "string*"
-                    
                 }
             
             },
@@ -1046,7 +1202,7 @@
                             "iterator": "ObjectId",
                             "path": "/users/{iterator}/mailboxattributes",
                             "base": {
-                                "ObjectId": "{iterator}"
+                                "UserObjectId": "{iterator}"
                             }
                         },
                         "processing_options": {
@@ -1071,7 +1227,8 @@
                     "NumMessages": "string*",
                     "Send": "string*",
                     "Receive": "string*",
-                    "Warn": "string*"
+                    "Warn": "string*",
+                    "UserObjectId": "string*"
                 }
             },
             "users_messagehandlers": {
@@ -1084,7 +1241,7 @@
                             "iterator": "ObjectId",
                             "path": "/users/{iterator}/messagehandlers",
                             "base": {
-                                "ObjectId": "{iterator}"
+                                "UserObjectId": "{iterator}"
                             }
                         },
                         "processing_options": {
@@ -1107,7 +1264,8 @@
                     "VoicemailAction": "string*",
                     "EmailAction": "string*",
                     "FaxAction": "string*",
-                    "DeliveryReceiptAction": "string*"
+                    "DeliveryReceiptAction": "string*",
+                    "UserObjectId": "string*"
                 }
             },
             "users_mwi": {
@@ -1120,7 +1278,7 @@
                             "iterator": "ObjectId",
                             "path": "/users/{iterator}/mwi",
                             "base": {
-                                "ObjectId": "{iterator}"
+                                "UserObjectId": "{iterator}"
                             }
                         },
                         "processing_options": {
@@ -1150,8 +1308,8 @@
                     "IncludeFaxMessages": "boolean*",
                     "Active": "boolean*",
                     "UsePrimaryExtension": "boolean*",
-                    "MediaSwitchDisplayName": "string*"
-                    
+                    "MediaSwitchDisplayName": "string*",
+                    "UserObjectId": "string*"
                 }
             
             },
@@ -1165,7 +1323,7 @@
                             "iterator": "ObjectId",
                             "path": "/users/{iterator}/notificationdevices",
                             "base": {
-                                "ObjectId": "{iterator}"
+                                "UserObjectId": "{iterator}"
                             }
                         },
                         "processing_options": {
@@ -1214,8 +1372,8 @@
                     "ScheduleSetObjectId": "string*",
                     "InitialDelay": "string*",
                     "RepeatInterval": "string*",
-                    "RepeatNotify": "boolean*"
-                    
+                    "RepeatNotify": "boolean*",
+                    "UserObjectId": "string*"
                 }
             
             },
@@ -1226,7 +1384,7 @@
                         "call": {
                             "mode": "iteration",
                             "table": "users",
-                            "iterator": "ObjectId",
+                            "iterator": "UserObjectId",
                             "path": "/users/{iterator}/privatelists",
                             "base": {
                                 "ObjectId": "{iterator}"
@@ -1269,7 +1427,7 @@
                             "iterator": "ObjectId",
                             "path": "/users/{iterator}/userroles",
                             "base": {
-                                "ObjectId": "{iterator}"
+                                "UserObjectId": "{iterator}"
                             }
                         },
                         "processing_options": {
@@ -1293,6 +1451,139 @@
                     "RoleURI": "string*",
                     "RoleName": "string*",
                     "Alias": "string*"
+                    
+                }
+            
+            },
+            "users_externalserviceaccounts": {
+                "operations": {
+                    "usersexternalserviceaccountsList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "users",
+                            "iterator": "ObjectId",
+                            "path": "/users/{iterator}/externalserviceaccounts",
+                            "base": {
+                                "UserObjectId": "{iterator}"
+                            }
+                        },
+                        "processing_options": {
+                            "output_field": "ExternalServiceAccount"
+                        },
+                        "query_parameters": {},
+                        "maxSessionCount": 20,
+                        "warning_only": [
+                            404
+                        ]
+                    },
+                    "usersexternalserviceaccountsCreate": {
+                        "method": "post",
+                        "call": {
+                            "path": "/users/{SubscriberObjectId}/externalserviceaccounts"
+                        },
+                        "processing_options": {
+                            "output_field": "ExternalServiceAccount"
+                        },
+                        "query_parameters": {
+                        },
+                        "semantics": "create",
+                        "resource_allowance_default": "prohibited",
+                        "resource_mandatory": [
+                            "ExternalServiceObjectId",
+                            "EnableCalendarCapability",
+                            "LoginType",
+                            "EnableMailboxSynchCapability",
+                            "EmailAddressUseCorp"
+                        ]
+                    }
+                },
+                "parameters": {},
+                "key": "ObjectId",
+                "resources": {
+                    "URI": "string*",
+                    "ObjectId": "string*",
+                    "ExternalServiceObjectId": "string*",
+                    "SubscriberObjectId": "string*",
+                    "UserURI": "string*",
+                    "EnableCalendarCapability": "boolean*",
+                    "EnableMeetingCapability": "boolean*",
+                    "EnableTtsOfEmailCapability": "boolean*",
+                    "IsPrimaryMeetingService": "boolean*",
+                    "LoginType": "string*",
+                    "UserPassword": "string*",
+                    "EmailAddress": "string*",
+                    "EnableMailboxSynchCapability": "string*",
+                    "EmailAddressUseCorp": "string*",
+                    "UserExternalServiceResetURI": "string*"
+                    
+                }
+            
+            },
+            "callhandler_transferoptions": {
+                "operations": {
+                    "callhandlertransferoptionsList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "users_callhandlers",
+                            "iterator": "ObjectId",
+                            "path": "/handlers/callhandlers/{iterator}/transferoptions",
+                            "base": {
+                                "UserObjectId": "{iterator}"
+                            }
+                        },
+                        "processing_options": {
+                            "output_field": "TransferOption"
+                        },
+                        "query_parameters": {},
+                        "maxSessionCount": 20,
+                        "warning_only": [
+                            404
+                        ]
+                    },
+                    "callhandlertransferoptionsUpdate": {
+                        "method": "put",
+                        "call": {
+                            "path": "/handlers/callhandlers/{CallHandlerObjectId}/transferoptions/{TransferOptionType}"
+                        },
+                        "processing_options": {
+                            "output_field": "TransferOption"
+                        },
+                        "query_parameters": {
+                        },
+                        "semantics": "update",
+                        "resource_allowance_default": "prohibited",
+                        "resource_mandatory": [
+                            "CallHandlerObjectId"
+                        ]
+                    }
+                },
+                "parameters": {},
+                "key": "CallHandlerObjectId",
+                "resources": {
+                    "URI": "string",
+                    "CallHandlerObjectId": "string*",
+                    "CallhandlerURI": "string",
+                    "TransferOptionType": "string*",
+                    "Action": "string*",
+                    "Extension": "string*",
+                    "RnaAction": "string*",
+                    "TimeExpires": "string*",
+                    "TransferAnnounce": "string*",
+                    "TransferConfirm": "string*",
+                    "TransferDtDetect": "string*",
+                    "TransferHoldingMode": "string*",
+                    "TransferIntroduce": "string*",
+                    "TransferRings": "string*",
+                    "TransferScreening": "string*",
+                    "TransferType": "string*",
+                    "MediaSwitchObjectId": "string*",
+                    "PhoneSystemURI": "string",
+                    "UsePrimaryExtension": "string*",
+                    "PlayTransferPrompt": "string*",
+                    "PersonalCallTransfer": "string*",
+                    "Enabled": "string*"
                     
                 }
             
@@ -1320,7 +1611,12 @@
             "retry": [
                 {
                     "type": "statusCode",
-                    "statusCode": 503
+                    "statusCode": 503,
+                    "retry": {
+                        "type": "simple",
+                        "maxCount": 10,
+                        "waitTime": 1
+                    }
                 },
                 {
                     "type": "connectionError"
