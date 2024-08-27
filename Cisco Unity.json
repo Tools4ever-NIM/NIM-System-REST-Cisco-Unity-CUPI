@@ -831,13 +831,10 @@
                     "userCreate": {
                         "method": "post",
                         "call": {
-                            "path": "/users"
+                            "path": "/users?templateAlias={TemplateAlias}"
                         },
                         "processing_options": {
                             "output_field": "User"
-                        },
-                        "query_parameters": {
-                            "templateAlias": "{TemplateAlias}"
                         },
                         "semantics": "create",
                         "resource_allowance_default": "prohibited",
